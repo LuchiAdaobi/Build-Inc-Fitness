@@ -1,0 +1,46 @@
+$primary-color: #FFC900;
+$secondary-color: #000;
+$primary-font: 'Monteserrat', sans-serif;
+$secondary-font: 'Raleway', sans-serif;
+
+@mixin heading{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: calc(3rem + 3.5vw);
+    color: #fff;
+    line-height: 1;
+    
+}
+
+
+.heading{
+    @include heading;
+}
+.hero-heading{
+    @include heading;
+    padding: 9rem 0;
+    text-align: center;
+    font-size: calc(4rem + 3.5vw);
+}
+
+@mixin section-title {
+    text-transform: uppercase;
+    font-size: calc(1.6rem + 2vw);
+    font-weight: bold;
+}
+@mixin section-title2 {
+        font-size: calc(2rem + 2.5vw);
+}
+
+.section-title{
+    @include section-title;
+}
+
+%p{
+    font-size: calc(.7rem + .8vw);
+            line-height: 1.5;
+            padding: 2rem;
+            color: #fff;
+            text-align: center;
+            font-family: $secondary-font;
+}

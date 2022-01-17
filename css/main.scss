@@ -1,0 +1,1360 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Raleway:wght@300;700;800&display=swap');
+
+@import 'config';
+@import 'buttons';
+@import 'about';
+@import 'coaches';
+@import 'schedule';
+@import 'pricing';
+@import 'contact';
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: $primary-font;
+}
+
+a{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
+img{
+    width: 100%;
+}
+.container{
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+// TRANSITIONS
+
+@keyframes fromLeft {
+    0%{        
+       transform: translateX(-280%);
+    }
+    100%{        
+       transform: translateX(0%);
+    }
+}
+
+// ABOUT HIDDEN PAGE
+
+#about{
+    position: relative;
+}
+
+#coaches{
+    display:none;
+    position: absolute;
+    left: 42%;
+    top: 15%;
+    padding: 2rem 3rem;
+    background: lighten($primary-color, 3);
+    transition: all .3s ease;
+    z-index: 1;
+    margin-left: 1rem;
+    z-index: 1;
+    
+     
+
+    
+    &:hover{
+       border-bottom: none;
+
+       &:after{
+        content: '';
+        position: absolute;
+        left: 23px;
+        height: 60%;
+        width: .2rem;
+        background: $secondary-color;
+        top: 15px;
+        margin: 0 auto;
+        animation: fromLeft .3s ease;
+    }
+    }
+
+    &.show{
+        display: block;
+    }
+}
+
+
+// POPUP WINDOW
+.popup{
+    height: 100vh;
+    background-color: rgba($color: #000000, $alpha: .3);
+    z-index: 10;
+    transition: all .3s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 100%;
+    visibility: hidden;
+    transform: translate3d(0, 100%, 0);
+
+    &.show{
+        visibility: visible;
+        transform: translate3d(0, 0, 0);
+    }
+   
+    .popup-content{
+        width: 60vw;
+        margin: 0 auto;
+        background-color: $primary-color;
+        position: relative;
+        top: 134px;
+        padding: 3.5rem 2rem;
+
+        &.remove{
+            visibility: hidden;
+        }
+
+
+        #popup-close{
+            font-size:1.3rem ;
+            color: rgb(141, 137, 137);
+            cursor: pointer;
+            margin-top: -2rem;
+            float: right;
+            padding: .5rem .8rem;
+            border-radius: 50%;
+            background: lightgrey;
+            &:hover{
+                color: darken(rgb(141, 137, 137), 20);
+            }
+        }
+        .section-title{
+            text-align: center
+        }
+        p{
+            @extend %p;
+            color: black;
+            text-align: left;
+            padding: 2rem 0;
+            padding-top: 1rem;
+        }
+
+        .popup-form{
+            text-align: left;
+
+            input{
+                width: 100%;
+                padding: .5rem;
+                font-size: calc(.7rem + .7vw);
+                outline: none;
+                border-radius: 4px;
+                border: 1px solid rgb(122, 121, 121);
+                margin-bottom: 1.5rem;
+                &:focus{
+                    box-shadow: 0 2px 2px #adadad, 0 -2px 2px #adadad;
+                    
+                }
+            }
+            label{
+                padding-left: 5px;
+                font-size: calc(.7rem + .7vw);
+                color: rgb(63, 60, 60);
+               
+            }
+            .button{
+                .btn-primary{
+                    display: block;
+                }
+            }
+
+        }
+}
+    
+}
+
+
+// NAV
+.header{
+    background: $primary-color;
+    padding: 3rem 0;
+
+    .container{
+        padding: 0 2rem;
+        max-width: 1200px;
+    }
+    
+    .header-content{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        
+    #close-btn, #show-menu{
+        font-size: 1.7rem;
+        display: none;
+        cursor: pointer;
+        
+    }
+
+   
+    #angle-up, #angle-down{
+        display: none;
+    }
+    }
+
+    .logo{
+        max-width: 250px;
+    }
+
+    .navbar{
+
+        z-index: 3;
+        ul{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            
+
+            span{
+                i{
+                    padding-left: .6rem;
+                    cursor: pointer;
+                }
+                
+            }
+            li{
+
+                #hide{
+                    display: none;
+                   
+                }
+                a{
+                    margin-left: 2.8rem;
+                    color: #000;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    font-family: $secondary-font;
+                     font-size: calc(.5rem + .5vw);
+                     transition: all .3s ease;
+
+                     &:hover:not(.button){
+                         border-bottom: 3px solid $secondary-color;
+                        padding-bottom: 1rem;
+                     }
+
+                     &.active{
+                        border-bottom: 3px solid $secondary-color;
+                        padding-bottom: 1rem;
+                    }
+                }
+
+                
+            }
+        }
+    }
+}
+
+
+// HERO
+.hero{
+    background: url(/images/hero-home.png);
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+    &:after{
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba($color: #817e7e, $alpha: .1);
+    }
+   
+    .hero-content{
+       text-align: center;
+       margin: 0 auto;
+       padding-top: 10vw;
+       position: relative;
+       z-index: 1;
+    .heading{
+        span{
+            color: $primary-color;
+        }
+
+    }
+    p{
+        color: #fff;
+        margin: 1.5rem auto;
+        font-size: calc(.8rem + .8vw);
+        font-family: $secondary-font;
+        margin-bottom: 2.5rem;
+    }
+   
+    }
+}
+
+
+// STUDIO
+
+.studio{
+    background: $secondary-color;
+    height: 100vh;
+    color: #fff;
+    
+    .studio-content{
+        padding-top: 7rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 6rem;
+
+        p{
+            font-size: calc(.8rem + .8vw);
+            line-height: 1.5;
+            margin: 3rem auto;
+        }
+
+        img{
+            width: 450px;
+            height: auto;
+        }
+    }
+}
+
+// FACILITIES
+
+.facilities{
+    height: 100vh;
+    background: url(/images/we-got.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+
+    .facilities-content{
+        background: $secondary-color;
+        padding: 3rem;
+        margin: 0 auto;
+        color: #fff;
+        width: 50vw;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 12%);
+
+        .section-title{
+            @include section-title2;
+            span{
+                color: $primary-color;
+            }
+        }
+
+        p{
+            font-size: calc(.8rem + .8vw);
+            line-height: 1.5;
+            margin: 2rem auto;
+            margin-bottom: 3rem;
+        }
+    }
+}
+
+
+// FEATURED
+
+.featured{
+    background: $secondary-color;
+    padding: 6rem 0;
+    margin: 0 auto;
+    .container{
+        max-width:1250px;
+    }
+    p{
+        font-size: calc(.7rem + .8vw);
+            line-height: 1.5;
+            padding-bottom: 4rem;
+            color: #fff;
+            text-align: center;
+    }
+
+    .featured-content{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 4rem;
+
+        img{
+            width: 350px;
+        }
+
+        .modern-health{
+            width: 250px;
+        }
+    }
+}
+
+// FOOTER FORM
+.form{
+    background: $primary-color;
+    height: 100vh;
+    
+    .form-content{
+        padding-top: 9vw;
+        text-align: center;
+        margin: 0 auto;
+
+        .section-title{
+            font-size: calc(2rem +3vw);
+        }
+        p{
+            @extend %p;
+            color: $secondary-color;
+            font-size: calc(1rem + .8vw);
+            font-weight: 200;
+        
+        }
+
+        .workout-form{
+            margin: 1rem auto;
+            width: 40vw;
+            text-align: left;
+            input{
+                width: 100%;
+                padding: .8rem;
+                font-size: calc(.7rem + .7vw);
+                outline: none;
+                border-radius: 4px;
+                border: 1px solid rgb(122, 121, 121);
+                &:focus{
+                    box-shadow: 0 2px 2px #adadad, 0 -2px 2px #adadad;
+                    
+                }
+            }
+            label{
+                padding-left: 5px;
+                font-size: calc(.7rem + .7vw);
+                color: #6d6767;
+               
+            }
+
+            .button{
+                margin: 1.5rem auto;
+                
+                .btn-primary{
+                    display: block;
+                    
+                }
+            }
+        }
+    }
+}
+
+
+// FOOTER
+
+.footer{
+    background: $secondary-color;
+    color: #fff;
+    padding: 3rem;
+    z-index: 1;
+
+    p{
+        text-align: center;
+        font-size: calc(.6rem + .6vw);
+    }
+}
+
+
+
+
+// MEDIA QUERIES
+
+@media(max-width: 1150px){
+    // HAMBURGER MENU
+.header-content{
+
+    
+    i{
+        display: block !important;   
+    }
+    .close-btn{
+        padding: 3rem;
+       
+    }
+
+    #close-btn, #show-menu{
+        font-size: 1.7rem;
+        display: block !important;
+    }
+
+    .caret{
+        display: none;
+        cursor: pointer;
+    }
+    #arrow{
+        position: absolute;
+        // display: inline-block;
+        left: 190px;
+        top: -25px;
+        transition: all .3s ease;
+    }
+    #angle-up, .angle-up, #angle-down, .angle-down{
+        margin-left: 3rem;
+        font-size: 1.4rem;
+        position: relative;
+        bottom: -62px !important;
+        transition: all .3s ease;
+        cursor: pointer;
+   
+    }
+    #angle-down{
+        display: none !important;
+
+        &.active{
+            display: block !important;
+        }
+    }
+    #angle-up{
+        display: block !important;
+        &.inactive{
+            display: none !important;
+        }
+        
+    }
+
+
+
+.navbar{
+    display: block;
+    z-index: 3;
+    position: fixed;
+    right: -100%;
+    top: 0;
+    height: 100vh;
+    background: $primary-color;
+    width: 45vw;
+    transition: all .3s ease;
+
+
+
+    &.show{
+        right: 0;
+    } 
+
+  nav{
+      position: relative;
+    
+      ul{
+          display: block !important;
+
+              span{
+                  i{
+                      display: inline-block !important;
+                      margin-left: 7rem;
+                  }
+              }
+          li{
+              display: block;
+              padding: 1rem;
+              text-align: left;
+          
+              
+              a{
+                    // display: inline-block;
+                    font-size: calc(.8rem + .7vw) !important;
+                    text-align: left;
+                    padding-left: 1rem;
+                    margin-left: .8rem !important;
+                    // position: relative;
+
+                    &:hover:not(.button){
+                        border-bottom: none !important;
+                        border-left: 3px solid $secondary-color;
+
+                     
+                        
+                         
+                     
+                    }
+
+                    &.active{
+                       border-left: 3px solid $secondary-color;
+                       border-bottom: none !important;
+                    //    padding-left: 1rem;
+                   }
+              }
+          }
+      }
+         .button{
+             margin-top: 1.8rem;
+         }
+  }
+}
+
+// ABOUT HIDDEN PAGE
+
+#about{
+    position: absolute;
+    transition: all .3s ease; 
+    
+}
+
+
+
+#coaches{
+    display:block;
+    position: relative;
+    // left: 15%;
+    left: 0;
+    top: 0 !important;
+    // top: 30%;
+    padding-bottom: 0 !important;
+    // padding-top: .5rem !important;
+    // padding-left: -1rem;
+    background: lighten($primary-color, 3);
+    transition: all .4s ease;
+    z-index: 1;
+    padding: 0 !important;
+    padding-top: 1rem !important;
+    padding-left: 1rem !important;
+    margin-left: .7rem !important;
+    margin-top: .5rem;
+
+    
+    &:hover{
+       border-bottom: none;
+
+       &:after{
+        content: '';
+        position: absolute;
+        left: 23px;
+        height: 0%;
+        width: 0rem;
+        background: $secondary-color;
+        top: 5px;
+        margin: 0 auto;
+        animation: fromLeft .3s ease;
+    }
+    }
+
+    &.show{
+        display: block;
+    }
+}
+}
+
+// HERO
+.hero{
+    height: 80vh;
+
+    .hero-content{
+        padding-top: 18vw;
+    }
+}
+}
+
+
+
+
+@media(max-width: 1150px){
+    // HERO
+.hero{  
+    .hero-content{
+      
+       padding-top: 12vw;
+   
+    p{
+        font-size: calc(1rem + 1vw);
+        margin-bottom: 2.9rem;
+    }
+   
+    }
+}
+
+
+// STUDIO
+
+.studio{
+  height: auto;
+  
+    .studio-content{
+        flex-direction: column;
+        padding: 6rem 4rem;
+
+        .section-title{
+            font-size: calc(1.9rem + 3vw);
+        }
+        p{
+            font-size: calc(.8rem + 1vw);
+            line-height: 1.8;
+            margin: 3rem auto;
+        }
+        .button{
+            .btn-secondary{
+                display: block;
+            }
+        }
+        img{
+            max-width: 700px;
+            height: auto;
+            margin: 0 auto;
+        }
+    }
+}
+
+// FACILITIES
+
+.facilities{
+    height: 100vh;
+    
+
+    .facilities-content{
+        padding: 4rem;
+        margin: 0 auto;
+        width: 85vw;
+        height: auto;
+        transform: translate(-50%, 7%);
+        
+
+        .section-title{
+            @include section-title2;
+        }
+
+        p{
+            font-size: calc(.8rem + 1vw);
+            line-height: 1.5;
+            margin: 3rem auto;
+        }
+
+        .button{
+            .btn-secondary{
+                display: block;
+            }
+        }
+    }
+}
+
+
+// FEATURED
+
+.featured{
+    background: $secondary-color;
+    padding: 6rem 0;
+    margin: 0 auto;
+    .container{
+        max-width:1250px;
+    }
+    p{
+        font-size: calc(1rem + 1vw);
+
+    }
+
+    .featured-content{
+       flex-direction: column;
+
+        img{
+            width: 300px;
+        }
+
+        .modern-health{
+            width: 250px;
+        }
+    }
+}
+
+// FOOTER FORM
+.form{
+    
+    height: 90vh;
+    
+    .form-content{
+
+        // .section-title{
+        //     font-size: calc(2rem + 3vw);
+        // }
+        
+        // p{
+          
+        //     font-size: calc(1rem + .8vw);
+        // }
+
+        .workout-form{
+            
+            width: 80vw;
+            
+            input{
+                
+                font-size: calc(.9rem + .9vw);
+              
+            }
+            label{
+                font-size: calc(.9rem + .9vw);
+            }
+
+        }
+    }
+}
+
+
+// FOOTER
+
+.footer{
+    
+
+    p{
+        
+        font-size: calc(.7rem + .8vw);
+    }
+}
+
+
+
+// COACH PAGE STYLING
+.coach{
+    .coach-content{
+        .hero-heading{
+            padding-bottom: 4rem;
+        }
+        p{
+           font-size: calc(.8rem + .8vw) !important;
+           line-height: 1.5;
+        }
+    }
+}
+.coaches{
+     
+     
+    .card{
+        flex-direction: column;
+        text-align: center;
+       
+        img{
+          max-width: 700px;
+          width: auto;
+        }
+        .name{
+            font-size: calc(1.8rem + 2vw);
+        }
+        p{
+            font-size: calc(.8rem + .8vw) !important;
+            line-height: 1.5;
+        }
+    }
+}
+}
+
+
+@media(max-width: 950px){
+    // POPUP CONTENT
+.popup{
+    .popup-content{
+        width: 80vw;
+
+        p{
+            font-size: calc(.9rem + .8vw);
+        }
+    }
+}
+
+.facilities.about{
+    
+    .facilities-content{
+        &.about{
+            transform: translate(-50%, 17%);
+            padding: 2rem;
+
+            .section-title{
+                @include section-title;
+            }
+        }
+    }
+}
+
+}
+
+@media(max-width: 768px){
+     // HERO
+.hero{
+
+    .hero-content{
+       padding-top: 10vw;
+    }
+}
+
+// STUDIO
+
+.studio{
+    height: auto;
+    
+      .studio-content{
+       
+          .button{
+              .btn-secondary{
+                  padding: 1rem 1.5rem;
+              }
+          }
+          img{
+              max-width: 500px;
+              width: auto;
+              height: auto;
+              margin: 0 auto;
+          }
+      }
+  }
+  // FACILITIES
+
+.facilities{
+  
+    .facilities-content{
+        transform: translate(-50%, 8%);
+
+        .button{
+
+            .btn-secondary{
+                padding: 1rem 1.5rem;
+            }
+        }
+    }
+}
+    // FOOTER
+
+    .footer{
+    
+
+        p{
+            
+            font-size: calc(.8rem + .8vw);
+        }
+    }
+
+
+    // SCHEDULE STYLING
+
+
+
+    .hero-heading{
+        font-size: calc(4rem + 3.5vw);
+    }
+    // .schedule{
+    //     height: 110vh;
+    // }
+
+    .timetable{
+        height: 355vh;
+
+        
+        &-content{
+            padding: 1rem;
+            padding-bottom: 0rem;
+            margin-bottom: 0;
+            top: 40%;
+
+            .day{
+                
+                font-size: calc(1rem + 1.5vw);
+            }
+
+            .time{
+                display: block;
+                p{
+                    font-size: calc(.9rem + 1vw);
+                    
+                }
+                .yellow{
+                    text-align: right;
+                }
+                .thick{
+                    font-size: calc(.9rem + 1vw);
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+
+    // ABOUT PAGE STYLING
+
+.about{
+    .about-content{
+        
+            p{
+        
+                font-size: calc(1rem + .8vw);
+            }
+            ul{
+                li{
+                    font-size: calc(1rem + .8vw);
+                }
+            }
+        
+    }
+}
+
+// ABOUT FACILITIES
+
+.about{
+    
+
+    .container{
+        padding: 0;
+    }
+  
+}
+.facilities.about{
+    
+    .facilities-content{
+        &.about{
+            transform: translate(-50%, 13%);
+            padding: 2rem;
+
+            .section-title{
+                @include section-title;
+            }
+        }
+    }
+}
+
+
+
+// FEATURED
+
+.featured{
+   
+    p{
+        font-size: calc(.8rem + 1vw);
+
+    }
+
+    .featured-content{
+       
+
+        img{
+            max-width: 350px;
+            width: auto;
+        }
+
+        .modern-health{
+            max-width: 220px;
+            width: auto;
+        }
+    }
+}
+
+
+// COACH PAGE STYLING
+.coach{
+    .container{
+        padding: 0;
+    }
+    .coach-content{
+        .hero-heading{
+            padding: 2rem;
+        }
+        p{
+           font-size: calc(1rem + 1vw) !important;
+           line-height: 1.8;
+        }
+    }
+}
+.coaches{
+
+    .card{
+        
+       
+        img{
+          max-width: 400px;
+          width: auto;
+        }
+        .name{
+            font-size: calc(1.5rem + 2vw) !important;
+        }
+        // p{
+        //     font-size: calc(1rem + 1vw) !important;
+        //     line-height: 1.8;
+        // }
+    }
+}
+
+// PRICING MEDIA STYLES
+.pricing{
+    .pricing-card{
+        grid-template-columns: 1fr;
+
+        .card{
+            .month-pass{
+                font-size: calc(1.4rem + 1.3vw);
+            }
+            p{
+                font-size: calc(1rem + .8vw);
+            }
+            .button{
+                .btn-secondary{
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+// CONTACT PAGE STYLING
+
+.contact-pg-form{
+    height: 145vh;
+    .form-box{
+        padding: 6rem 1rem;
+        top: 35%;
+        .container{
+            padding: 0;
+        }
+        .box-content{
+            p{
+                padding-bottom: 0rem;
+            }
+
+            .contact-page-form{
+                padding-top: 3rem;
+            }
+        }
+    }
+}
+
+// POPUP CONTENT
+.popup{
+    .popup-content{
+        width: 80vw;
+    
+       
+    }
+}
+
+
+}
+
+
+
+
+@media(max-width:500px){
+    .hero-heading{
+        font-size: calc(2.8rem + 3vw);
+       
+    }
+
+
+// HEADER
+
+.header{
+    #angle-up, #angle-down{
+        margin-left: 0rem;
+        left: 40px;
+    }
+    .navbar{
+        width: 60vw;
+    }
+}
+// BUTTON
+.button{
+    .btn-secondary{
+        padding: 1rem 1.5rem;
+    }
+}
+
+    // HERO
+.hero{
+
+    .hero-content{
+       padding-top: 18vw;
+       .heading{
+        font-size: calc(2.3rem + 2.5vw);
+       }
+    }
+}
+
+
+// STUDIO
+
+.studio{
+    height: auto;
+    
+      .studio-content{
+        padding: 4rem .5rem;
+        
+          img{
+              max-width: 300px;
+              width: auto;
+              height: auto;
+              margin: 0 auto;
+              margin-top: 4.7rem;
+          }
+
+          p{
+              margin-bottom: 3rem;
+          }
+      }
+  }
+
+
+//   FACILITIES
+
+.facilities{
+  
+    .facilities-content{
+        transform: translate(-50%, 13%);
+        padding: 2rem;
+
+       
+
+        .button{
+            margin-top: .5rem;
+        }
+    }
+}
+
+// FEATURED
+
+.featured{
+    background: $secondary-color;
+    padding: 3rem 0;
+    margin: 0 auto;
+    .container{
+        max-width:1250px;
+    }
+    p{
+        font-size: calc(.8rem + 1vw);
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .featured-content{
+        padding: 2rem 0;
+        // margin: 2rem auto;
+        // gap: 4rem;
+
+        img{
+            max-width: 200px;
+            width: auto;
+            margin-bottom: 2rem;
+        }
+
+        .modern-health{
+            max-width: 180px;
+            width: auto;
+        }
+    }
+}
+
+
+   // COACH PAGE STYLING
+
+.coaches{
+    padding-bottom: 2rem;
+    .card{
+        
+       
+        img{
+          max-width: 300px;
+          width: auto;
+        }
+        .name{
+            font-size: calc(1.5rem + 2vw) !important;
+        }
+        p{
+            font-size: calc(.9rem + .9vw) !important;
+            line-height: 1.8;
+        }
+    }
+}
+
+
+// SCHEDULE STYLING PAGE
+
+
+.timetable{
+    height: 340vh;
+   
+}
+  
+
+
+
+// PRICING STYLING
+
+.pricing{
+    .pricing-card{
+        .card{
+            padding: 1rem 2rem;
+
+            .month-pass{
+                font-size: calc(1rem + 1vw);
+            }
+            p{
+                padding: 0;
+            }
+        }
+    }
+}
+
+
+// CONTACT STYLING
+.contact-pg-form{
+    height: 130vh;
+    .form-box{
+        padding: 6rem 1rem;
+        top: 35%;
+    }
+}
+    
+    // FOOTER
+
+.footer{
+    
+
+    p{
+        
+        font-size: calc(.7rem + .8vw);
+    }
+}
+
+// POPUP
+
+.popup{
+    .popup-content{
+        width: 85vw;
+        
+    }
+}
+}
+
+@media(max-width: 380px){
+//    NAVBAR
+.header{
+    .navbar{
+        width: 65vw;
+    }
+}
+
+
+
+    .timetable{
+        height: 280vh;
+        &-content{
+        top: 39%;
+        }
+    }
+
+    // CONTACT STYLING
+.contact-pg-form{
+    height: 110vh;
+    .form-box{
+        padding: 6rem 1rem;
+        top: 25%;
+    }
+}
+}

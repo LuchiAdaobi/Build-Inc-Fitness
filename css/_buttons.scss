@@ -1,0 +1,38 @@
+%btn{
+ color: $secondary-color;
+ background: transparent;
+ text-transform: uppercase; 
+ font-size: calc(.5rem + .6rem); 
+ padding: 1rem; 
+ border: 1px solid $secondary-color;
+ cursor: pointer;
+ transition: hover .3s ease;
+ font-family: $secondary-font;
+ font-weight: 700 !important;
+ text-align: center;
+
+ &:hover{
+     background: $secondary-color;
+     color: #fff;
+ }
+}
+
+.button{
+    .btn-primary{
+        @extend %btn;
+    }
+}
+.button{
+    .btn-secondary{
+        @extend %btn;
+        color: $primary-color;
+        border: 1px solid $primary-color;
+        padding: 1rem 3rem;
+        font-size: calc(.7rem + .7rem); 
+
+        &:hover{
+            color: $secondary-color;
+            background: $primary-color;
+        }
+    }
+}

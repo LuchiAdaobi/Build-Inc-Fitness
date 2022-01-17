@@ -1,0 +1,81 @@
+
+
+// SCHEDULE HERO
+
+.schedule{
+    background: url(/images/we-got.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    height: 100vh;
+    // position: relative;
+       
+    }
+
+
+    // SCHEDULE TIMETABLE
+
+    .timetable{
+        background: $secondary-color;
+        color: #ffffff;
+        height: 188vh;
+        position: relative;
+        
+        
+        &-content{
+            background: $secondary-color;
+            
+            margin: 0 auto;
+            padding: 2rem;
+            width: 90vw;
+            position: absolute;
+            top: 39%;
+            
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding-bottom: 9rem;
+            .day{
+                
+                font-size: calc(1.2rem + 1vw);
+                font-family: $secondary-font;
+                padding-left: 1.5rem;
+                padding-bottom: 4rem;
+
+                &.day-2{
+                    padding-top: 10rem;
+                }
+            }
+            
+
+            .time{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1.5rem 0;
+                border-top: 3px solid #fff;
+
+                &.time-last{
+                    border-bottom: 3px solid #fff;
+                }
+                P{
+                    text-align: left;
+                    @extend %p;
+                    font-family: $primary-font;
+                    // border-top: 3px solid #fff;
+                }
+                
+                .yellow{
+                    color: $primary-color;
+                    font-weight: 700;
+                }
+
+                .thick{
+                    font-weight: 700;
+                    font-size: calc(.8rem + .9vw);
+                   
+                }
+                
+            }
+        }
+    }
+   

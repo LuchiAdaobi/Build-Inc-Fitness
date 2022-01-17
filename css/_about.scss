@@ -1,0 +1,47 @@
+
+
+
+// ABOUT HERO
+
+.about{
+    background: $secondary-color;
+    padding-bottom: 7rem;
+    color: #fff;
+    .about-content{
+        .hero-heading{
+            padding: 4rem 0;
+           
+        }
+
+        p{
+            @extend %p;
+            text-align: left;
+            
+        }
+
+        ul{
+            li{
+                @extend %p;
+                text-align: left;
+                padding: .7rem;
+                list-style: disc;
+                margin-left: 3rem;
+            }
+        }
+    }
+    
+}
+
+// ABOUT FACILITIES
+.facilities.about{
+    height: 100vh;
+    .facilities-content{
+        &.about{
+            transform: translate(-50%, 10%);
+
+            .section-title{
+                @include section-title;
+            }
+        }
+    }
+}

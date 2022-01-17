@@ -1,0 +1,56 @@
+
+
+
+// COACH HERO
+.coach{
+    background: $secondary-color;
+    color: #fff;
+    padding-top: 3rem;
+    padding-bottom: 10rem;
+    .coach-content{
+        .hero-heading{
+            padding: 6rem 0;
+            
+        }
+
+        p{
+            @extend %p;
+            text-align: left;
+            
+        }
+    }
+}
+
+// COACH CARD
+
+.coaches{
+    background: $secondary-color;
+    color: #fff;
+    padding-bottom: 6rem;
+    .card{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 2rem;
+        margin: 0 auto;
+        img{
+            max-width: 400px;
+            width: auto;
+            height: auto;
+        }
+
+        .name{
+            text-transform: uppercase;
+            margin: 2rem auto;
+            font-size: calc(1.5rem + 1.2vw);
+            text-align: center;
+        }
+
+        p{
+            @extend %p;
+            text-align: left;
+            font-size: calc(.7rem + .6vw);
+            padding: 2rem 0;
+        }
+    }
+}
