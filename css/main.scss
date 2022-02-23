@@ -168,7 +168,7 @@ img{
             }
             .button{
                 .btn-primary{
-                    display: block;
+                    width: 100%;
                 }
             }
 
@@ -501,7 +501,6 @@ img{
     }
     #arrow{
         position: absolute;
-        // display: inline-block;
         left: 190px;
         top: -25px;
         transition: all .3s ease;
@@ -578,11 +577,6 @@ img{
                     &:hover:not(.button){
                         border-bottom: none !important;
                         border-left: 3px solid $secondary-color;
-
-                     
-                        
-                         
-                     
                     }
 
                     &.active{

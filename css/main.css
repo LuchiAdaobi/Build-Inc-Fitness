@@ -571,7 +571,7 @@ img {
 }
 
 .popup .popup-content .popup-form .button .btn-primary {
-  display: block;
+  width: 100%;
 }
 
 .header {
