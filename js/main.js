@@ -32,22 +32,21 @@ closeBtn.addEventListener('click', () => {
 
 const navBar2 = document.getElementById('navbar');
 
-window.addEventListener('click', clickOutside);
-
 function clickOutside(e) {
-  if (e.target == navBar2) {
+  if (e.target === navBar2) {
     navBar2.classList.remove('show');
   }
 }
+window.addEventListener('click', clickOutside);
 
 // POPUP
 
 const popUp = document.getElementById('popup');
 const close = document.getElementById('popup-close');
-const button = document.querySelectorAll('button');
+// const button = document.querySelectorAll('button');
 
 document.querySelectorAll('.button').forEach((i) =>
-  i.addEventListener('click', (e) => {
+  i.addEventListener('click', () => {
     popUp.classList.add('show');
   })
 );
@@ -56,10 +55,9 @@ close.addEventListener('click', () => {
   popUp.classList.remove('show');
 });
 
-window.addEventListener('click', clickOutside);
-
-function clickOutside(e) {
-  if (e.target == popUp) {
+function clickOutsidePopup(e) {
+  if (e.target === popUp) {
     popUp.classList.remove('show');
   }
 }
+window.addEventListener('click', clickOutsidePopup);
